@@ -1,5 +1,5 @@
 # factorio-headless-server
-A repository with steps and files needed to set up a headless Factorio server
+A repository with steps and files needed to set up a headless Factorio server on linux
 
 ## Dependencies
 - Factorio save file
@@ -52,10 +52,8 @@ tree -L 1 /opt/factorio
 
 # expected:
 ├── bin
-├── config
 ├── data
 ├── mods
-├── saves
 └── temp
 ```
 
@@ -86,7 +84,9 @@ sudo chown factorio:factorio /opt/factorio/saves/yoursavefile.zip
 sudo chmod 664 /opt/factorio/saves/yoursavefile.zip
 ```
 
-3. Verify permissions
+3. Make note of this save file for later use
+
+4. Verify permissions
 ```shell
 ls -l /opt/factorio/saves/yoursavefile.zip
 
@@ -137,7 +137,7 @@ curl -4 ifconfig.me
 ```
 
 ### Setting up Main Save Sync 
-This is because it will setup autosaves, Factorio always writes autosaves as _autosaveX.zip; but the main save file is only updated on clean shutdown. so we have the cron job just in case
+This is because Factorio always writes autosaves as _autosaveX.zip; but the main save file is only updated on clean shutdown. so we have the cron job just in case
 
 1. Create the script to update the main save
 ```shell
