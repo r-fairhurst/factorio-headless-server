@@ -1,0 +1,17 @@
+[Unit]
+Description=Factorio Headless Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=factorio
+Group=factorio
+WorkingDirectory=/opt/factorio
+ExecStart=/opt/factorio/bin/x64/factorio \
+  --start-server /opt/factorio/saves/savefile.zip
+Restart=on-failure
+Nice=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
